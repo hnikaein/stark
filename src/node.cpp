@@ -2,7 +2,6 @@
  * @author Hassan Nikaein
  */
 
-#include <cstring>
 #include <algorithm>
 #include <iostream>
 #include "node.h"
@@ -34,7 +33,7 @@ long Edges::size() {
 
 void Edges::erase(long id) {
     long edges_size = neighbour_ids.size();
-    for (int i = 0; i < edges_size; ++i)
+    for (long i = 0; i < edges_size; ++i)
         if (neighbour_ids[i] == id) {
             neighbour_ids[i] = neighbour_ids.back();
             neighbour_ids.pop_back();
@@ -99,7 +98,7 @@ bool Edges::operator==(Edges &another_edges) {
         return false;
     sort(neighbour_ids.begin(), neighbour_ids.end());
     sort(another_edges.neighbour_ids.begin(), another_edges.neighbour_ids.end());
-    for (unsigned int i = 0; i < size; ++i)
+    for (unsigned long i = 0; i < size; ++i)
         if (neighbour_ids[i] != another_edges.neighbour_ids[i])
             return false;
     return true;
@@ -269,9 +268,9 @@ long Node::partial_right_merge_to(Node &node, bool growing_merge) {
     }
 }
 
-void Node::set_sequence(char *sequence, int sequence_len) {
-    this->sequence = sequence;
-    this->sequence_len = sequence_len;
+void Node::set_sequence(char *new_sequence, int new_sequence_len) {
+    this->sequence = new_sequence;
+    this->sequence_len = new_sequence_len;
 }
 
 char *Node::get_sequence() {

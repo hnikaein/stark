@@ -72,7 +72,7 @@ public:
 
     Node() = delete;
 
-    void set_sequence(char *sequence, int sequence_len);
+    void set_sequence(char *new_sequence, int new_sequence_len);
 
     char *get_sequence();
 

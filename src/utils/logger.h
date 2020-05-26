@@ -34,7 +34,7 @@ public:
 
     void fatal(const char *format, ...);
 
-    void log(const std::string &s, LogLevel log_level);
+    void log(const std::string &s, LogLevel level);
 
     static std::string formatString(const char *format, ...);
 

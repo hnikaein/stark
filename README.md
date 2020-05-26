@@ -7,8 +7,8 @@ A tool for bluntifying a bidirected de bruijn graph by removing overlaps.
 ## Compilation
 
     git clone --recursive https://github.com/hnikaein/stark 
-    cd stark
-    mkdir build;  cd build;  cmake ..;  cmake --build . -- -j 8
+    cd stark/build
+    cmake ..;  cmake --build . -- -j 8
     
 ## Dependencies
 

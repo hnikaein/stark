@@ -39,8 +39,8 @@ LOGGER_FUNCTION(fatal, FATAL)
 
 using namespace std;
 
-void Logger::log(const string &s, LogLevel log_level) {
-    if (log_level > this->log_level)
+void Logger::log(const string &s, LogLevel level) {
+    if (level > this->log_level)
         return;
     time_t ctt = time(nullptr);
     char *time = asctime(localtime(&ctt));

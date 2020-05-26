@@ -108,7 +108,7 @@ void read_gfa() {
         tie(from_name, from_sign, to_name, to_sign) = late_edge;
         if (node_ids.find(from_name) == node_ids.end() || node_ids.find(to_name) == node_ids.end()) {
             if (max_node_ids == -1)
-                logger->warn("Undefined node: %d -> %d!", from_name, to_name);
+                logger->warn("Undefined node: %d -> %d!", from_name.c_str(), to_name.c_str());
             continue;
         }
         from_id = node_ids[from_name];
@@ -156,7 +156,8 @@ void print_statistics(int cur_k) {
             total_not_unified_nodes += node.second.sequence_len - cur_k;
             total_letters += node.second.sequence_len;
         }
-        long total_not_unified_edges = total_edges + total_not_unified_nodes - Node::nodes.size();
+        long total_not_unified_edges = total_edges + total_not_unified_nodes;
+        total_not_unified_edges -= Node::nodes.size();
         logger->debugl2("total_edges: %ld", total_edges);
         logger->debug("total_nodes (expanded): %ld", total_not_unified_nodes);
         logger->debugl2("total_edges (expanded): %ld", total_not_unified_edges);
